@@ -1,6 +1,6 @@
 .container {
   width: 90%;
-  max-width: 600px;
+  max-width: 700px;
   margin: 50px auto;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -31,4 +31,29 @@ button {
 
 button:hover {
   background-color: #0056b3;
+}
+
+.recipe-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-card img {
+  width: 100%;
+  height: auto;
+}
+
+.recipe-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 0;
+}
+
+.recipe-time {
+  font-size: 12px;
+  color: #666;
+  margin-top: 5px;
 }

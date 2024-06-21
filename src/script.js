@@ -1,11 +1,12 @@
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("ingredientForm");
   var input = document.getElementById("ingredientInput");
-  var resultsDiv = document.getElementById("results");
+  var resultsContainer = document.querySelector(".row");
 
   form.addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent the form from submitting normally
     var ingredients = input.value
+      .toLowerCase()
       .trim()
       .split(",")
       .map((i) => i.trim()); // Assuming ingredients are comma-separated
@@ -27,11 +28,34 @@ document.addEventListener("DOMContentLoaded", function () {
     fetch(url)
       .then((response) => response.json())
       .then((data) => {
-        resultsDiv.innerHTML = ""; // Clear previous results
+        resultsContainer.innerHTML = ""; // Clear previous results
         data.hits.forEach((hit) => {
-          var resultElement = document.createElement("div");
-          resultElement.textContent = hit.recipe.label; // Display recipe label
-          resultsDiv.appendChild(resultElement);
+          var recipeCard = document.createElement("div");
+          recipeCard.className = "col-md-6 card";
+
+          var recipeImage = document.createElement("img");
+          recipeImage.src = hit.recipe.image;
+          recipeImage.alt = hit.recipe.label;
+
+          var recipeTitle = document.createElement("h5");
+          recipeTitle.className = "recipe-title";
+          recipeTitle.textContent = hit.recipe.label;
+
+          var recipeTime = document.createElement("p");
+          recipeTime.className = "recipe-time";
+          recipeTime.textContent = `Cooking Time: ${hit.recipe.totalTime} minutes`;
+
+          var recipeLink = document.createElement("a");
+          recipeLink.href = hit.recipe.url;
+          recipeLink.target = "_blank";
+          recipeLink.textContent = "Full Recipe";
+
+          recipeCard.appendChild(recipeImage);
+          recipeCard.appendChild(recipeTitle);
+          recipeCard.appendChild(recipeTime);
+          recipeCard.appendChild(recipeLink);
+
+          resultsContainer.appendChild(recipeCard);
         });
       })
       .catch((error) => console.error("Error fetching recipes:", error));
