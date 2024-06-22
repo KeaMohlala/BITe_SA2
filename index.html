@@ -22,7 +22,7 @@
   <body>
     <div class="container">
       <h1>BITe SA</h1>
-      <h4>Local flavours, tailored to your pantry</h4>
+      <h3>Local flavours, tailored to your pantry</h3>
       <form id="ingredientForm">
         <input
           type="text"
@@ -31,6 +31,57 @@
         />
         <button type="submit">Submit</button>
       </form>
+      <div class="filters">
+        <h5>Filter Results:</h5>
+        <ul class="filter-list">
+          <li>
+            <span>Meal Type:</span>
+            <select id="mealTypeFilter">
+              <option value="">All</option>
+              <option value="Breakfast">Breakfast</option>
+              <option value="Lunch">Lunch</option>
+              <option value="Dinner">Dinner</option>
+              <option value="Snack">Snack</option>
+              <option value="Teatime">Teatime</option>
+            </select>
+          </li>
+          <li>
+            <span>Cuisine Type:</span>
+            <select id="cuisineTypeFilter">
+              <option value="">All</option>
+              <option value="American">American</option>
+              <option value="Asian">Asian</option>
+              <option value="British">British</option>
+              <option value="Caribbean">Caribbean</option>
+              <option value="Central Europe">Central Europe</option>
+              <option value="Chinese">Chinese</option>
+              <option value="Eastern Europe">Eastern Europe</option>
+              <option value="French">French</option>
+              <option value="Indian">Indian</option>
+              <option value="Italian">Italian</option>
+              <option value="Japanese">Japanese</option>
+              <option value="Kosher">Kosher</option>
+              <option value="Mediterranean">Mediterranean</option>
+              <option value="Middle Eastern">Middle Eastern</option>
+              <option value="Nordic">Nordic</option>
+              <option value="South American">South American</option>
+              <option value="South East Asian">South East Asian</option>
+            </select>
+          </li>
+          <li>
+            <span>Diet:</span>
+            <select id="dietFilter">
+              <option value="">All</option>
+              <option value="balanced">Balanced</option>
+              <option value="high-fiber">High-Fiber</option>
+              <option value="high-protein">High-Protein</option>
+              <option value="low-fat">Low-Fat</option>
+              <option value="low-carb">Low-Carb</option>
+              <option value="low-sodium">Low-Sodium</option>
+            </select>
+          </li>
+        </ul>
+      </div>
       <div class="row"></div>
     </div>
     <script src="src/script.js"></script>

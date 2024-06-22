@@ -57,3 +57,18 @@ button:hover {
   color: #666;
   margin-top: 5px;
 }
+
+.filters {
+  margin-top: 20px;
+}
+
+.filter-list li {
+  display: inline-block;
+  margin-right: 10px;
+}
+
+.filter-list select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
