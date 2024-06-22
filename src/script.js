@@ -1,7 +1,21 @@
+var offcanvasElementList = [].slice.call(
+  document.querySelectorAll(".offcanvas")
+);
+var offcanvasList = offcanvasElementList.map(function (offcanvasEl) {
+  return new bootstrap.Offcanvas(offcanvasEl);
+});
+
 document.addEventListener("DOMContentLoaded", function () {
   var form = document.getElementById("ingredientForm");
   var input = document.getElementById("ingredientInput");
   var resultsContainer = document.querySelector(".row");
+  var applyFiltersBtn = document.getElementById("applyFilters");
+
+  var filters = {
+    mealType: "",
+    cuisineType: "",
+    diet: "",
+  };
 
   form.addEventListener("submit", function (e) {
     e.preventDefault(); // Prevent the form from submitting normally
@@ -18,12 +32,34 @@ document.addEventListener("DOMContentLoaded", function () {
     input.value = ""; // Clear the input field
   });
 
-  function fetchRecipes(query) {
+  applyFiltersBtn.addEventListener("click", function () {
+    filters.mealType = document.getElementById("mealType").value;
+    filters.cuisineType = document.getElementById("cuisineType").value;
+    filters.diet = document.getElementById("diet").value;
+    fetchRecipes();
+    var offcanvasElement = document.querySelector("#filterMenu");
+    var offcanvasInstance = bootstrap.Offcanvas.getInstance(offcanvasElement);
+    offcanvasInstance.hide();
+  });
+
+  function fetchRecipes(query = "") {
     var appId = "21ae8994";
     var appKey = "7578b2b129cbd412347cd9e03a326232";
     var url = `https://api.edamam.com/api/recipes/v2?type=public&q=${encodeURIComponent(
       query
     )}&app_id=${appId}&app_key=${appKey}%09&imageSize=THUMBNAIL`;
+
+    if (filters.mealType) {
+      url += `&mealType=${filters.mealType}`;
+    }
+
+    if (filters.cuisineType) {
+      url += `&cuisineType=${filters.cuisineType}`;
+    }
+
+    if (filters.diet) {
+      url += `&diet=${filters.diet}`;
+    }
 
     fetch(url)
       .then((response) => response.json())
