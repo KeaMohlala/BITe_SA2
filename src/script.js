@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
           recipeTime.textContent = `Cooking Time: ${hit.recipe.totalTime} minutes`;
 
           var recipeLink = document.createElement("a");
+          recipeLink.className = "recipe-link";
           recipeLink.href = hit.recipe.url;
           recipeLink.target = "_blank";
           recipeLink.textContent = "Full Recipe";
@@ -129,10 +130,10 @@ document.addEventListener("DOMContentLoaded", function () {
         if (data.hits.length === 0) {
           // No recipes found, set a message
           resultsContainer.innerHTML =
-            "<h5>No recipes found matching your criteria.</h5>";
+            "<h4>No recipes found matching your criteria.</h4>";
         } else {
           var recipeCount = data.count;
-          resultsContainer.innerHTML = `<h5> ${recipeCount} Recipes Found </h5>`;
+          resultsContainer.innerHTML = `<h4> ${recipeCount} Recipes Found </h4>`;
           if (data._links.next) {
             fetchNextPage(data._links.next.href);
           } else {

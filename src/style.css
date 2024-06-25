@@ -57,15 +57,19 @@ button:hover {
   background-color: #a3de83;
 }
 
-.recipe-card {
+.col-md-6 {
+  background-color: #feffea;
   border: 2px solid #a3de83;
   border-radius: 10px;
   padding: 15px;
-  margin-bottom: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  height: 480px;
+  overflow: hidden;
 }
 
-.recipe-card img {
+img {
   width: 100%;
   height: auto;
 }
@@ -74,6 +78,7 @@ button:hover {
   font-size: 15px;
   font-weight: bold;
   margin-top: 0;
+  flex-grow: 1;
 }
 
 .recipe-time {
@@ -83,6 +88,7 @@ button:hover {
   font-weight: 200;
   font-style: normal;
   font-family: var(--font-family);
+  flex-shrink: 0;
 }
 
 .filters {
@@ -129,21 +135,63 @@ h3 {
 }
 
 h5,
-li {
+li,
+h4 {
   font-family: var(--font-family);
   font-weight: 600;
   font-style: normal;
 }
 
-a {
+h4 {
+  background-color: #feffea;
+  text-align: center;
+}
+
+.recipe-link {
   color: #a3de83;
   text-decoration: none;
   font-family: var(--font-family);
   font-weight: 400;
   font-style: normal;
   font-size: 15px;
+  transition: all 200ms ease;
+  opacity: 1;
+  margin-top: auto;
+  padding: 0;
+}
+
+.background-link,
+.github-link {
+  color: black;
+  background-color: #feffea;
+  font-family: monospace;
+  font-size: 12px;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+}
+
+.github-link a {
+  color: #a3de83;
+  transition: all 200ms ease;
+  opacity: 1;
+}
+
+.github-link {
   position: relative;
-  bottom: 0;
-  top: 0;
-  margin-bottom: 0;
+  top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+a:hover {
+  opacity: 0.7;
+  color: #2eb872;
+}
+body {
+  background-image: url("https://s3.amazonaws.com/shecodesio-production/uploads/files/000/130/457/original/2295170.jpg?1719338574");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
