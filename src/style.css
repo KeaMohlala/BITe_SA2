@@ -1,40 +1,64 @@
+:root {
+  --width: 90%;
+  --max-width: 700px;
+  --margin: 25px auto;
+  --padding: 20px;
+  --background-color: #feffea;
+  --font-family: "Poppins", sans-serif;
+}
+
 .container {
-  width: 90%;
-  max-width: 700px;
-  margin: 50px auto;
-  padding: 20px;
+  width: var(--width);
+  max-width: var(--max-width);
+  margin: var(--margin);
+  padding: var(--padding);
+  background-color: var(--background-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.containers {
+  width: var(--width);
+  max-width: var(--max-width);
+  margin: var(--margin);
+  padding: var(--padding);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
 }
 
 form {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-style: normal;
 }
 
 input[type="text"] {
   flex-grow: 1;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid #a3de83;
 }
 
 button {
   padding: 10px 20px;
-  background-color: #007bff;
+  background-color: #2eb872;
   color: white;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-style: normal;
 }
 
 button:hover {
-  background-color: #0056b3;
+  background-color: #a3de83;
 }
 
 .recipe-card {
-  border: 1px solid #ddd;
+  border: 2px solid #a3de83;
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 20px;
@@ -47,19 +71,27 @@ button:hover {
 }
 
 .recipe-title {
-  font-size: 18px;
+  font-size: 15px;
   font-weight: bold;
   margin-top: 0;
 }
 
 .recipe-time {
   font-size: 12px;
-  color: #666;
+  color: black;
   margin-top: 5px;
+  font-weight: 200;
+  font-style: normal;
+  font-family: var(--font-family);
 }
 
 .filters {
   margin-top: 20px;
+}
+
+.filter-list {
+  display: flex;
+  justify-content: flex-start;
 }
 
 .filter-list li {
@@ -69,6 +101,49 @@ button:hover {
 
 .filter-list select {
   padding: 5px;
-  border: 1px solid #ccc;
+  border: 2px solid #a3de83;
   border-radius: 5px;
+}
+
+.button-nextpage {
+  margin: 25px auto;
+  display: block;
+}
+
+h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+  padding: 5px;
+}
+
+h3 {
+  font-family: "Caveat", cursive;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  text-align: center;
+  padding: 5px;
+}
+
+h5,
+li {
+  font-family: var(--font-family);
+  font-weight: 600;
+  font-style: normal;
+}
+
+a {
+  color: #a3de83;
+  text-decoration: none;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-style: normal;
+  font-size: 15px;
+  position: relative;
+  bottom: 0;
+  top: 0;
+  margin-bottom: 0;
 }

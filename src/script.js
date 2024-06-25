@@ -60,6 +60,7 @@ document.addEventListener("DOMContentLoaded", function () {
           resultsContainer.appendChild(recipeCard);
         });
         var nextpageButton = document.createElement("button");
+        nextpageButton.className = "button-nextpage";
         nextpageButton.textContent = "More Recipes";
         nextpageButton.onclick = function () {
           fetchNextPage(data._links.next.href);
