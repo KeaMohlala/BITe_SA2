@@ -91,10 +91,6 @@ img {
   flex-shrink: 0;
 }
 
-.filters {
-  margin-top: 20px;
-}
-
 .filter-list {
   display: flex;
   justify-content: flex-start;
