@@ -14,12 +14,25 @@ document.addEventListener("DOMContentLoaded", function () {
       .trim()
       .split(",")
       .map((i) => i.trim()); // Assuming ingredients are comma-separated
+
+    // Dynamically capture the currently selected filter values
+    var selectedMealType = Array.from(mealTypeFilter.selectedOptions).map(
+      (option) => option.value
+    );
+    var selectedCuisineType = Array.from(cuisineTypeFilter.selectedOptions).map(
+      (option) => option.value
+    );
+    var selectedDiet = Array.from(dietFilter.selectedOptions).map(
+      (option) => option.value
+    );
+
     if (ingredients.length > 0) {
-      // Capture the currently selected filter values
-      var mealType = mealTypeFilter.value;
-      var cuisineType = cuisineTypeFilter.value;
-      var diet = dietFilter.value;
-      fetchRecipes(ingredients.join(), mealType, cuisineType, diet);
+      fetchRecipes(
+        ingredients.join(),
+        selectedMealType,
+        selectedCuisineType,
+        selectedDiet
+      );
     } else {
       alert("Please enter ingredients.");
     }
@@ -117,11 +130,29 @@ document.addEventListener("DOMContentLoaded", function () {
   function fetchRecipes(query, mealType, cuisineType, diet) {
     var appId = "21ae8994";
     var appKey = "7578b2b129cbd412347cd9e03a326232";
+    let typeMeal = mealType
+      .map(function (meal) {
+        return meal ? `&mealType=${meal}` : "";
+      })
+      .join("");
+
+    // Construct the query string for cuisineType
+    let typeCuisine = cuisineType
+      .map(function (cuisine) {
+        return cuisine ? `&cuisineType=${cuisine}` : "";
+      })
+      .join("");
+
+    // Construct the query string for diet
+    let typeDiet = diet
+      .map(function (d) {
+        return d ? `&diet=${d}` : "";
+      })
+      .join("");
+
     var url = `https://api.edamam.com/api/recipes/v2?type=public&q=${encodeURIComponent(
       query
-    )}${mealType ? `&mealType=${mealType}` : ""}${
-      cuisineType ? `&cuisineType=${cuisineType}` : ""
-    }${diet ? `&diet=${diet}` : ""}&app_id=${appId}&app_key=${appKey}`;
+    )}${typeMeal}${typeCuisine}${typeDiet}&app_id=${appId}&app_key=${appKey}`;
 
     fetch(url)
       .then((response) => response.json())
