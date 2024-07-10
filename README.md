@@ -39,3 +39,6 @@ This algorithm leverages the Edamam API, a powerful resource for accessing a vas
   - Once the recipes are fetched, the algorithm dynamically generates HTML elements for each recipe and appends them to the results container.
     This includes displaying an image, title, cooking time, and a link to the full recipe.
     Additional recipes can be loaded by clicking the "More Recipes" button, which triggers another API request for the next set of recipes.
+
+
+
